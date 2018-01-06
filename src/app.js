@@ -35,7 +35,7 @@ const renderAddForm = () => {
       {app.subtitle2 && <p>{app.subtitle2}</p>}
       <p>{app.subtitle3}</p>
       <p>{app.options.length > 0 ? 'Here are some options' : 'No options!'}</p>
-      <button disabled={app.options.length ===0} onClick={onMakeDecision}>What should I do?</button>
+      <button disabled={app.options.length === 0} onClick={onMakeDecision}>What should I do?</button>
       <button onClick={onRemoveAll}>Remove All</button>
       <ol>
         {
