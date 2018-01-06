@@ -1,21 +1,25 @@
 const toggleApp = {
   title: 'Visibility Toggle',
-  buttonShow: 'Show details',
-  buttonHide: 'Hide details',
-  sentence: 'Hej. There are some details you can now see!'
+  sentence: 'Hey. There are some details you can now see!'
 };
 
 const onToggle = () => {
- const showSentence =
-
-  template();
+  visibility = !visibility;
+    template();
 };
+
+let visibility = false;
 
 const template = () => {
   const toggleSwitch = (
     <div>
       <h1>{toggleApp.title}</h1>
-      <button onClick={onToggle}>{toggleApp.buttonShow}</button>
+      <button onClick={onToggle}>
+        {visibility ? 'Hide details' : 'Show details'}
+      </button>
+      {visibility && (
+        <p>{toggleApp.sentence}</p>
+      )}
     </div>
   );
   ReactDOM.render(toggleSwitch, appRoot);

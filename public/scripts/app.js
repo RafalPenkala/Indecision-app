@@ -2,14 +2,15 @@
 
 var toggleApp = {
   title: 'Visibility Toggle',
-  buttonShow: 'Show details',
-  buttonHide: 'Hide details',
-  sentence: 'Hej. There are some details you can now see!'
+  sentence: 'Hey. There are some details you can now see!'
 };
 
 var onToggle = function onToggle() {
-  var showSentence = template();
+  visibility = !visibility;
+  template();
 };
+
+var visibility = false;
 
 var template = function template() {
   var toggleSwitch = React.createElement(
@@ -23,7 +24,12 @@ var template = function template() {
     React.createElement(
       'button',
       { onClick: onToggle },
-      toggleApp.buttonShow
+      visibility ? 'Hide details' : 'Show details'
+    ),
+    visibility && React.createElement(
+      'p',
+      null,
+      toggleApp.sentence
     )
   );
   ReactDOM.render(toggleSwitch, appRoot);
